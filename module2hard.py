@@ -1,15 +1,19 @@
-number = int(input("Введите число(3 до 20): "))
 
-list_ = []
-pairs = set()
-for i in range(1, 21):
-    for j in range(1, 21):
-        if i == j:
-            continue
-        if number % (i+j) == 0 and (i, j) not in pairs:
-            list_.append((i, j))
-            pairs.add((i, j))
-            pairs.add((j, i))
-print(f"Пары для {number} --> {list_}")
+while True:
+    first_stone = int(input('Введите число(3 до 20): '))
+    if first_stone >= 3 and first_stone <= 20:
+        second_stone = ''
+        number_list = list(range(1, 20))
+        for i in number_list:
+            a = i
+            for j in range(i+1,21):
+                b = j
+                if first_stone % (a + b) == 0:
+                    second_stone += str(a)
+                    second_stone += str(b)
 
-
+        print(first_stone)
+        print(int(second_stone))
+    else:
+        print('Неверное число!')
+        break
